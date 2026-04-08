@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenClaw Solutions ? Digital Solutions Hub</title>
+  <meta name="description" content="OpenClaw Solutions is a digital solutions hub helping businesses improve their online presence and operations through tailored technology services.">
+  <link rel="canonical" href="https://www.openclawsolutions.com/">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #1a73e8;
+      --color-secondary: #fafafa;
+      --color-error: #e63946;
+      --space-unit: 1rem;
+      --grid-gap: 1.5rem;
+      --font-size-lg: 1.5rem;
+      --line-height: 1.6;
+    }
+    *,
+    *::before,
+    *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      line-height: var(--line-height);
+      background-color: #fff;
+    }
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 0.5rem;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-unit);
+    }
+    .index-header {
+      background-color: var(--color-secondary);
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .index-header__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-unit) 0;
+    }
+    .index-logo {
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .index-menu-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      position: relative;
+    }
+    .index-menu-icon,
+    .index-menu-icon::before,
+    .index-menu-icon::after {
+      content: '';
+      display: block;
+      background-color: #333;
+      height: 2px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      transition: transform 0.3s;
+    }
+    .index-menu-icon {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .index-menu-icon::before {
+      top: -8px;
+    }
+    .index-menu-icon::after {
+      top: 8px;
+    }
+    .index-nav {
+      display: none;
+      background-color: var(--color-secondary);
+    }
+    .index-nav.is-open {
+      display: block;
+    }
+    .index-nav__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .index-nav__item {
+      display: block;
+      padding: var(--space-unit) 0;
+      border-top: 1px solid #e0e0e0;
+    }
+    .index-nav__item:first-child {
+      border-top: none;
+    }
+    @media (min-width: 768px) {
+      .index-menu-toggle { display: none; }
+      .index-nav {
+        display: block !important;
+        background: none;
+      }
+      .index-nav__list {
+        display: flex;
+        gap: var(--space-unit);
+      }
+      .index-nav__item {
+        border: none;
+        padding: 0;
+      }
+    }
+    .index-hero {
+      text-align: center;
+      padding: calc(var(--space-unit) * 2) 0;
+      background-color: var(--color-secondary);
+    }
+    .index-hero__title {
+      font-size: 2rem;
+      margin: 0 0 var(--space-unit);
+    }
+    .index-hero__subtitle {
+      font-size: 1rem;
+      margin: 0 0 var(--space-unit);
+      color: #555;
+    }
+    .index-hero__image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-top: var(--space-unit);
+    }
+    .index-services {
+      padding: calc(var(--space-unit) * 2) 0;
+    }
+    .index-services__title {
+      text-align: center;
+      font-size: 1.75rem;
+      margin-bottom: var(--space-unit);
+    }
+    .index-services__grid {
+      display: grid;
+      grid-gap: var(--grid-gap);
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    }
+    .index-service-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: var(--space-unit);
+      text-align: center;
+      transition: box-shadow 0.3s;
+    }
+    .index-service-card:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .index-service-card__icon {
+      width: 4rem;
+      height: 4rem;
+      margin-bottom: var(--space-unit);
+    }
+    .index-service-card__title {
+      font-size: 1.25rem;
+      margin: 0 0 0.5rem;
+    }
+    .index-service-card__desc {
+      margin: 0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .index-footer {
+      background: var(--color-secondary);
+      border-top: 1px solid #e0e0e0;
+      padding: var(--space-unit) 0;
+    }
+    .index-footer__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+    }
+    .index-footer-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: var(--space-unit);
+    }
+    .index-footer-nav a {
+      font-size: 0.875rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="index-header">
+    <div class="container index-header__container">
+      <a href="/" class="index-logo" data-action="navigate" data-route="/">OpenClaw Solutions</a>
+      <button class="index-menu-toggle js-menu" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation" data-action="toggle-nav">
+        <span class="index-menu-icon"></span>
+      </button>
+      <nav id="main-nav" class="index-nav" role="navigation" aria-label="Main navigation">
+        <ul class="index-nav__list">
+          <li><a href="about.html" class="index-nav__item" data-action="navigate" data-route="/about">About</a></li>
+          <li><a href="services.html" class="index-nav__item" data-action="navigate" data-route="/services">Services</a></li>
+          <li><a href="contact.html" class="index-nav__item" data-action="navigate" data-route="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="index-main">
+    <section class="index-hero" aria-labelledby="hero-heading">
+      <div class="container index-hero__container">
+        <h1 id="hero-heading" class="index-hero__title">Empowering Your Digital Future</h1>
+        <p class="index-hero__subtitle">Tailored technology solutions to elevate your business online.</p>
+        <img src="assets/images/hero.jpg" alt="Team collaborating on digital strategy" class="index-hero__image">
+      </div>
+    </section>
+    <section id="services" class="index-services" aria-labelledby="services-heading">
+      <div class="container">
+        <h2 id="services-heading" class="index-services__title">Our Services</h2>
+        <div class="index-services__grid">
+          <div class="index-service-card">
+            <img src="assets/images/icon-web.svg" alt="Web Development icon" class="index-service-card__icon">
+            <h3 class="index-service-card__title">Web Development</h3>
+            <p class="index-service-card__desc">Build responsive, high-performance websites and web apps.</p>
+          </div>
+          <div class="index-service-card">
+            <img src="assets/images/icon-design.svg" alt="UI/UX Design icon" class="index-service-card__icon">
+            <h3 class="index-service-card__title">UI/UX Design</h3>
+            <p class="index-service-card__desc">Craft user-centric interfaces for seamless digital experiences.</p>
+          </div>
+          <div class="index-service-card">
+            <img src="assets/images/icon-marketing.svg" alt="Digital Marketing icon" class="index-service-card__icon">
+            <h3 class="index-service-card__title">Digital Marketing</h3>
+            <p class="index-service-card__desc">Drive growth with data-driven marketing strategies and campaigns.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="index-footer">
+    <div class="container index-footer__container">
+      <p>&copy; 2024 OpenClaw Solutions. All rights reserved.</p>
+      <nav class="index-footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var menuBtn = document.querySelector('[data-action="toggle-nav"]');
+      var nav = document.querySelector('.index-nav');
+      if (menuBtn && nav) {
+        menuBtn.addEventListener('click', function() {
+          var isOpen = nav.classList.toggle('is-open');
+          menuBtn.setAttribute('aria-expanded', isOpen);
+          document.dispatchEvent(new CustomEvent('menu:toggle', { detail: { open: isOpen } }));
+        });
+      }
+      var navTriggers = document.querySelectorAll('[data-action="navigate"]');
+      navTriggers.forEach(function(el) {
+        el.addEventListener('click', function(event) {
+          event.preventDefault();
+          var route = el.getAttribute('data-route');
+          document.dispatchEvent(new CustomEvent('navigate', { detail: { route: route } }));
+        });
+        el._navigateListenerAttached = true;
+      });
+      navTriggers.forEach(function(el) {
+        if (!el._navigateListenerAttached) {
+          console.warn('Navigate listener missing for element', el);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
