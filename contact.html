@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | OpenClaw Solutions</title>
+  <meta name="description" content="Get in touch with OpenClaw Solutions for tailored digital solutions to elevate your business.">
+  <link rel="canonical" href="https://www.openclawsolutions.com/contact">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #1a73e8;
+      --color-secondary: #fafafa;
+      --color-error: #e63946;
+      --space-unit: 1rem;
+      --grid-gap: 1.5rem;
+      --font-size-lg: 1.5rem;
+      --line-height: 1.6;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      line-height: var(--line-height);
+      background-color: #fff;
+    }
+    a { color: var(--color-primary); text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 0.5rem;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-unit);
+    }
+    .index-header {
+      background-color: var(--color-secondary);
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .index-header__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-unit) 0;
+    }
+    .index-logo {
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .index-menu-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      position: relative;
+    }
+    .index-menu-toggle:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+    .index-menu-icon,
+    .index-menu-icon::before,
+    .index-menu-icon::after {
+      content: '';
+      display: block;
+      background-color: #333;
+      height: 2px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      transition: transform 0.3s;
+    }
+    .index-menu-icon {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .index-menu-icon::before {
+      top: -8px;
+    }
+    .index-menu-icon::after {
+      top: 8px;
+    }
+    .index-nav {
+      display: none;
+      background-color: var(--color-secondary);
+    }
+    .index-nav.is-open {
+      display: block;
+    }
+    .index-nav__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .index-nav__item {
+      display: block;
+      padding: var(--space-unit) 0;
+      border-top: 1px solid #e0e0e0;
+    }
+    .index-nav__item:first-child {
+      border-top: none;
+    }
+    .index-nav__item[aria-current="page"] {
+      font-weight: 500;
+    }
+    @media (min-width: 768px) {
+      .index-menu-toggle { display: none; }
+      .index-nav {
+        display: block !important;
+        background: none;
+      }
+      .index-nav__list {
+        display: flex;
+        gap: var(--space-unit);
+      }
+      .index-nav__item {
+        border: none;
+        padding: 0;
+      }
+    }
+    .contact-main {
+      padding: calc(var(--space-unit) * 2) 0;
+    }
+    .contact-section {
+      padding-bottom: calc(var(--space-unit) * 2);
+    }
+    .contact-section__title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 0 0 var(--space-unit);
+      color: #333;
+    }
+    .contact-form {
+      display: grid;
+      grid-gap: var(--grid-gap);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-field {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-label {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    .contact-input,
+    .contact-textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+    .contact-input:focus,
+    .contact-textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    .contact-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .contact-field.is-invalid .contact-input,
+    .contact-field.is-invalid .contact-textarea {
+      border-color: var(--color-error);
+    }
+    .contact-error {
+      color: var(--color-error);
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+    .contact-field.is-invalid .contact-error {
+      display: block;
+    }
+    .contact-btn {
+      background-color: var(--color-primary);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      justify-self: start;
+    }
+    .contact-btn:hover,
+    .contact-btn:focus {
+      background-color: #1669c8;
+      outline: none;
+    }
+    @media (max-width: 767px) {
+      .contact-btn {
+        width: 100%;
+        justify-self: stretch;
+      }
+    }
+    .contact-feedback {
+      display: none;
+      margin-top: var(--space-unit);
+      padding: var(--space-unit);
+      background-color: #e8f5e9;
+      border: 1px solid #c8e6c9;
+      border-radius: 4px;
+      color: #2e7d32;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .contact-feedback.is-visible {
+      display: block;
+    }
+    .index-footer {
+      background: var(--color-secondary);
+      border-top: 1px solid #e0e0e0;
+      padding: var(--space-unit) 0;
+    }
+    .index-footer__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+    }
+    .index-footer-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: var(--space-unit);
+    }
+    .index-footer-nav a {
+      font-size: 0.875rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="index-header">
+    <div class="container index-header__container">
+      <a href="/" class="index-logo" data-action="navigate" data-route="/">OpenClaw Solutions</a>
+      <button class="index-menu-toggle js-menu" aria-expanded="false" aria-label="Toggle navigation" data-action="toggle-nav" aria-controls="main-nav">
+        <span class="index-menu-icon"></span>
+      </button>
+      <nav id="main-nav" class="index-nav" role="navigation" aria-label="Main navigation">
+        <ul class="index-nav__list">
+          <li><a href="about.html" class="index-nav__item" data-action="navigate" data-route="/about">About</a></li>
+          <li><a href="services.html" class="index-nav__item" data-action="navigate" data-route="/services">Services</a></li>
+          <li><a href="contact.html" class="index-nav__item" aria-current="page" data-action="navigate" data-route="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="contact-main">
+    <section class="contact-section" aria-labelledby="contact-heading">
+      <div class="container">
+        <h1 id="contact-heading" class="contact-section__title">Contact OpenClaw Solutions</h1>
+        <form data-form="submit-contact" class="contact-form js-form" novalidate>
+          <div class="contact-field">
+            <label for="contact-name" class="contact-label">Name</label>
+            <input type="text" id="contact-name" name="name" class="contact-input" required>
+            <span class="contact-error">Please enter your name.</span>
+          </div>
+          <div class="contact-field">
+            <label for="contact-email" class="contact-label">Email</label>
+            <input type="email" id="contact-email" name="email" class="contact-input" required>
+            <span class="contact-error">Please enter a valid email address.</span>
+          </div>
+          <div class="contact-field">
+            <label for="contact-message" class="contact-label">Message</label>
+            <textarea id="contact-message" name="message" class="contact-textarea" required></textarea>
+            <span class="contact-error">Please enter your message.</span>
+          </div>
+          <button type="submit" class="contact-btn">Send Message</button>
+          <div class="contact-feedback" role="status" aria-live="polite">Thank you for your message! We'll get back to you soon.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="index-footer">
+    <div class="container index-footer__container">
+      <p>&copy; 2024 OpenClaw Solutions. All rights reserved.</p>
+      <nav class="index-footer-nav" role="navigation" aria-label="Footer navigation">
+        <ul>
+          <li><a href="privacy.html" data-action="navigate" data-route="/privacy">Privacy Policy</a></li>
+          <li><a href="terms.html" data-action="navigate" data-route="/terms">Terms of Service</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var menuBtn = document.querySelector('[data-action="toggle-nav"]');
+      var nav = document.querySelector('.index-nav');
+      if (menuBtn && nav) {
+        menuBtn.addEventListener('click', function() {
+          document.dispatchEvent(new CustomEvent('menu:toggle'));
+        });
+        menuBtn._hasListener = true;
+        document.addEventListener('menu:toggle', function() {
+          var isOpen = nav.classList.toggle('is-open');
+          menuBtn.setAttribute('aria-expanded', isOpen);
+        });
+      }
+      document.querySelectorAll('[data-action="navigate"]').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          var route = el.getAttribute('data-route');
+          var href = el.getAttribute('href');
+          document.dispatchEvent(new CustomEvent('navigate', { detail: { route: route, href: href } }));
+        });
+        el._hasListener = true;
+      });
+      document.addEventListener('navigate', function(e) {
+        if (e.detail && e.detail.href) {
+          window.location.href = e.detail.href;
+        }
+      });
+      var form = document.querySelector('[data-form="submit-contact"]');
+      if (form) {
+        var fields = form.querySelectorAll('input[name], textarea[name]');
+        fields.forEach(function(field) {
+          field.addEventListener('blur', function() {
+            validateField(field);
+            document.dispatchEvent(new CustomEvent('form:validate', { detail: { field: field.name, valid: !field.closest('.contact-field').classList.contains('is-invalid') } }));
+          });
+        });
+        form.addEventListener('submit', function(e) {
+          var isFormValid = true;
+          fields.forEach(function(field) {
+            if (!validateField(field)) {
+              isFormValid = false;
+            }
+          });
+          if (!isFormValid) {
+            e.preventDefault();
+            return;
+          }
+          e.preventDefault();
+          var formData = {};
+          fields.forEach(function(field) {
+            formData[field.name] = field.value.trim();
+          });
+          document.dispatchEvent(new CustomEvent('form:submit', { detail: formData }));
+          form.classList.add('is-loading');
+          var feedback = form.querySelector('.contact-feedback');
+          if (feedback) {
+            feedback.classList.add('is-visible');
+          }
+        });
+      }
+      function validateField(field) {
+        var isValid = true;
+        if (field.hasAttribute('required') && !field.value.trim()) {
+          isValid = false;
+        } else if (field.type === 'email' && field.value) {
+          var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!re.test(field.value.trim())) {
+            isValid = false;
+          }
+        }
+        var wrapper = field.closest('.contact-field');
+        if (!isValid) {
+          field.setAttribute('aria-invalid', 'true');
+          wrapper.classList.add('is-invalid');
+        } else {
+          field.removeAttribute('aria-invalid');
+          wrapper.classList.remove('is-invalid');
+        }
+        return isValid;
+      }
+      var missing = [];
+      document.querySelectorAll('[data-action]').forEach(function(el) {
+        if (!el._hasListener) missing.push(el.getAttribute('data-action'));
+      });
+      if (missing.length) {
+        console.warn('Missing listeners for actions:', missing);
+        document.dispatchEvent(new CustomEvent('init:integrity', { detail: { missing: missing } }));
+      }
+    });
+  </script>
+</body>
+</html>
