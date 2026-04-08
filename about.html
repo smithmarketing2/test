@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | OpenClaw Solutions</title>
+  <meta name="description" content="Learn about OpenClaw Solutions? mission to empower businesses with tailored digital solutions that enhance online presence and operations.">
+  <link rel="canonical" href="https://www.openclawsolutions.com/about">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #1a73e8;
+      --color-secondary: #fafafa;
+      --color-error: #e63946;
+      --space-unit: 1rem;
+      --grid-gap: 1.5rem;
+      --font-size-lg: 1.5rem;
+      --line-height: 1.6;
+      --grid-columns: repeat(auto-fit,minmax(16rem,1fr));
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      line-height: var(--line-height);
+      background-color: #fff;
+    }
+    a { color: var(--color-primary); text-decoration: none; transition: color 0.2s; }
+    a:hover, a:focus { text-decoration: underline; color: #1669c8; }
+    button:focus, a:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 0.5rem;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-unit);
+    }
+    .index-header {
+      background-color: var(--color-secondary);
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .index-header__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-unit) 0;
+    }
+    .index-logo {
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .index-menu-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      position: relative;
+    }
+    .index-menu-icon,
+    .index-menu-icon::before,
+    .index-menu-icon::after {
+      content: '';
+      display: block;
+      background-color: #333;
+      height: 2px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      transition: transform 0.3s;
+    }
+    .index-menu-icon {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .index-menu-icon::before {
+      top: -8px;
+    }
+    .index-menu-icon::after {
+      top: 8px;
+    }
+    .index-nav {
+      display: none;
+      background-color: var(--color-secondary);
+    }
+    .index-nav.is-open {
+      display: block;
+    }
+    .index-nav__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .index-nav__item {
+      display: block;
+      padding: var(--space-unit) 0;
+      border-top: 1px solid #e0e0e0;
+    }
+    .index-nav__item:first-child {
+      border-top: none;
+    }
+    .index-nav__item[aria-current="page"] {
+      font-weight: 500;
+    }
+    @media (min-width: 768px) {
+      .index-menu-toggle { display: none; }
+      .index-nav {
+        display: block !important;
+        background: none;
+      }
+      .index-nav__list {
+        display: flex;
+        gap: var(--space-unit);
+      }
+      .index-nav__item {
+        border: none;
+        padding: 0;
+      }
+    }
+    .about-main {
+      display: grid;
+      grid-template-columns: var(--grid-columns);
+      gap: var(--grid-gap);
+      align-items: start;
+      padding: calc(var(--space-unit) * 2) 0;
+    }
+    .about-hero {
+      text-align: center;
+      padding: calc(var(--space-unit) * 2) 0;
+      background-color: var(--color-secondary);
+      border-radius: 4px;
+    }
+    .about-hero__title {
+      font-size: 2rem;
+      margin: 0 0 var(--space-unit);
+      color: #333;
+    }
+    .about-hero__subtitle {
+      font-size: 1rem;
+      margin: 0 0 var(--space-unit);
+      color: #555;
+    }
+    .about-cta-btn {
+      background-color: var(--color-primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      font-weight: 500;
+      margin-bottom: var(--space-unit);
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .about-cta-btn:hover,
+    .about-cta-btn:focus {
+      background-color: #1669c8;
+      transform: translateY(-1px);
+    }
+    .about-hero__image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-top: var(--space-unit);
+      transition: transform 0.3s;
+    }
+    .about-hero__image:hover {
+      transform: scale(1.02);
+    }
+    .about-mission {
+      background-color: #fff;
+      padding: calc(var(--space-unit) * 2);
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .about-mission__title {
+      text-align: center;
+      font-size: 1.75rem;
+      margin-bottom: var(--space-unit);
+      color: #333;
+    }
+    .about-mission__text {
+      margin-bottom: var(--space-unit);
+      color: #333;
+      font-size: 1rem;
+      line-height: var(--line-height);
+    }
+    .index-footer {
+      background: var(--color-secondary);
+      border-top: 1px solid #e0e0e0;
+      padding: var(--space-unit) 0;
+    }
+    .index-footer__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+    }
+    .index-footer-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: var(--space-unit);
+    }
+    .index-footer-nav a {
+      font-size: 0.875rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="index-header">
+    <div class="container index-header__container">
+      <a href="/" class="index-logo" data-action="navigate" data-route="/">OpenClaw Solutions</a>
+      <button class="index-menu-toggle js-menu" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation" data-action="toggle-nav">
+        <span class="index-menu-icon"></span>
+      </button>
+      <nav id="main-nav" class="index-nav" role="navigation" aria-label="Main navigation">
+        <ul class="index-nav__list">
+          <li><a href="about.html" class="index-nav__item" aria-current="page" data-action="navigate" data-route="/about" data-event="analytics-click">About</a></li>
+          <li><a href="services.html" class="index-nav__item" data-action="navigate" data-route="/services" data-event="analytics-click">Services</a></li>
+          <li><a href="contact.html" class="index-nav__item" data-action="navigate" data-route="/contact" data-event="analytics-click">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="about-main">
+    <section class="about-hero" aria-labelledby="about-hero-heading">
+      <div class="container about-hero__container">
+        <h1 id="about-hero-heading" class="about-hero__title">About Us</h1>
+        <p class="about-hero__subtitle">OpenClaw Solutions is a digital solutions hub helping businesses improve their online presence and operations through tailored technology services.</p>
+        <a href="contact.html" class="about-cta-btn" data-action="navigate" data-route="/contact" data-event="analytics-click">Contact Us</a>
+        <img src="assets/images/about-hero.jpg"
+             srcset="assets/images/about-hero.jpg 1x, assets/images/about-hero@2x.jpg 2x"
+             loading="lazy"
+             alt="Illustration of digital solutions and collaboration"
+             class="about-hero__image">
+      </div>
+    </section>
+    <section id="mission" class="about-mission" aria-labelledby="about-mission-heading">
+      <h2 id="about-mission-heading" class="about-mission__title">Our Mission</h2>
+      <p class="about-mission__text">At OpenClaw Solutions, our mission is to empower businesses of all sizes to thrive in the digital landscape. We provide comprehensive technology services, from strategic web development and intuitive UI/UX design to data-driven digital marketing. Our tailored solutions are designed to increase visibility, enhance user engagement, and streamline operations, so you can focus on what you do best.</p>
+      <p class="about-mission__text">We believe in partnership and continuous support, offering scalable services that grow with your business. Our team of experts collaborates closely with you to understand unique challenges and deliver measurable results that drive growth and success.</p>
+    </section>
+  </main>
+  <footer class="index-footer">
+    <div class="container index-footer__container">
+      <p>&copy; 2024 OpenClaw Solutions. All rights reserved.</p>
+      <nav class="index-footer-nav" aria-label="Footer navigation">
+        <ul>
+          <li><a href="privacy.html" data-action="navigate" data-route="/privacy" data-event="analytics-click">Privacy Policy</a></li>
+          <li><a href="terms.html" data-action="navigate" data-route="/terms" data-event="analytics-click">Terms of Service</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var initTimer = setTimeout(function() {
+        document.dispatchEvent(new CustomEvent('init:timeout'));
+      }, 2000);
+      var menuBtn = document.querySelector('[data-action="toggle-nav"]');
+      var nav = document.querySelector('.index-nav');
+      if (menuBtn && nav) {
+        clearTimeout(initTimer);
+        menuBtn.addEventListener('click', function() {
+          var isOpen = nav.classList.toggle('is-open');
+          menuBtn.setAttribute('aria-expanded', isOpen);
+          document.dispatchEvent(new CustomEvent('menu:toggle', { detail: { open: isOpen } }));
+        });
+      }
+      var navLinks = document.querySelectorAll('[data-action="navigate"]');
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          var route = link.getAttribute('data-route');
+          document.dispatchEvent(new CustomEvent('navigate', { detail: { route: route } }));
+          document.dispatchEvent(new CustomEvent('analytics:track-click', { detail: { href: link.getAttribute('href'), text: link.textContent } }));
+        });
+      });
+    });
+  </script>
+</body>
+</html>
